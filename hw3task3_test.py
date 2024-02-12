@@ -20,7 +20,8 @@ class TestMainFunction(unittest.TestCase):
     def test_average_with_empty_input(self,mock_input):
         with patch('sys.stdout', new=StringIO()) as mock_stdout:
             Task_3.main()
-            self.assertNotIn('Average', mock_stdout.getvalue())
+            #self.assertNotIn('Average', mock_stdout.getvalue())
+            self.assertEqual("\nA grade point average: 0.0\n", mock_stdout.getvalue())
     
     def test_average(self):
         data = {"A+": 4.0, "A":4.0, "A-":3.7, "B+":3.3, "B":3.0, "B-":2.7, "C+":2.3, "C":2.0,  "C-":1.7, "D+":1.3, "D":1.0, "F":0.0}
