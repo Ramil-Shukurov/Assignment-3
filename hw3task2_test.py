@@ -8,7 +8,7 @@ class TestMainFunction(unittest.TestCase):
     @patch('builtins.input', side_effect=["5", "1", "2", "3", "4", "5"])
     def test_main_input_calls(self, mock_input):
         Task_1.main() 
-        expected_calls = ["max number to compute the average value: "]
+        expected_calls = ["Max number to compute the average value: "]
         expected_calls.extend([f"Value {i+1}: " for i in range(5)])
         # Check if input was called with the expected arguments
         self.assertEqual(mock_input.call_args_list, [unittest.mock.call(arg) for arg in expected_calls])
