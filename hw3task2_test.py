@@ -7,7 +7,7 @@ class TestMainFunction(unittest.TestCase):
 
     @patch('builtins.input', side_effect=["5", "1", "2", "3", "4", "5"])
     def test_main_input_calls(self, mock_input):
-        Task_1.main() 
+        Task_2.main() 
         expected_calls = ["Max number to compute the average value: "]
         expected_calls.extend([f"Value {i+1}: " for i in range(5)])
         # Check if input was called with the expected arguments
@@ -23,7 +23,7 @@ class TestMainFunction(unittest.TestCase):
         for test_case in test_cases:
             with patch('builtins.input', side_effect=test_case['input']), \
                  patch('sys.stdout', new_callable=StringIO) as mock_stdout:
-                Task_1.main()
+                Task_2.main()
             self.assertEqual(mock_stdout.getvalue().strip(), test_case['expected_output'])
 
     def test_invalid_input(self):
@@ -34,7 +34,7 @@ class TestMainFunction(unittest.TestCase):
         for test_case in test_cases:
             with patch('builtins.input', side_effect=test_case['input']), \
                  patch('sys.stdout', new_callable=StringIO) as mock_stdout:
-                Task_1.main()
+                Task_2.main()
             self.assertEqual(mock_stdout.getvalue().strip(), test_case['expected_output'])
 
 if __name__ == '__main__':
